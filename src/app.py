@@ -1,6 +1,6 @@
 import streamlit as st
 from datetime import date
-from database import carregar_hot100
+from service.database import carregar_hot100
 
 from config.page_config import apply_dark_theme
 from ui.layout import setup_page, render_sidebar

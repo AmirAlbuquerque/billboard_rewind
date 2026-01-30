@@ -11,6 +11,7 @@ def exibir_lista(df: pd.DataFrame, top: int):
             f"""
             **#{row['rank']}** 🎵 **{row['titulo']}**  
             *{row['artista']}*
+            👉 [Ouvir no Spotify 🎧]({row['spotify_url']}
             ---
             """
         )
