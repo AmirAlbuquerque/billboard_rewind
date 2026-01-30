@@ -30,6 +30,10 @@ def carregar_hot100(ano: int, mes: int) -> pd.DataFrame:
     ]    
 
     dados_df = pd.DataFrame(dados)
+    if dados_df.empty:
+        return pd.DataFrame(
+            columns=["rank", "titulo", "artista", "spotify_url"]
+        )
     
     dados_df["spotify_url"] = dados_df.apply(
         lambda row: gerar_link_spotify(row['titulo'], row['artista']), axis=1

@@ -29,4 +29,7 @@ if buscar:
         st.session_state.df_atual = carregar_hot100(ano, mes)
 
 # Exibição
-exibir_lista(st.session_state.df_atual, top_n)
+if st.session_state.df_atual.empty:
+    st.warning("⚠️ Não há dados disponíveis para este mês.")
+else:
+    exibir_lista(st.session_state.df_atual, top_n)
