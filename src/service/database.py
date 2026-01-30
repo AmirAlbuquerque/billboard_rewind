@@ -2,6 +2,8 @@ import pandas as pd
 import billboard
 from datetime import date, timedelta
 
+from service.spotify_service import gerar_link_spotify
+
 # --------------------------------------------------
 # FUNÇÃO — OBTÉM HOT-100 SOB DEMANDA
 # --------------------------------------------------
@@ -25,6 +27,12 @@ def carregar_hot100(ano: int, mes: int) -> pd.DataFrame:
             "artista": m.artist
         }
         for m in chart
-    ]
+    ]    
+
+    dados_df = pd.DataFrame(dados)
     
-    return pd.DataFrame(dados)
+    dados_df["spotify_url"] = dados_df.apply(
+        lambda row: gerar_link_spotify(row['titulo'], row['artista']), axis=1
+    )
+
+    return dados_df
