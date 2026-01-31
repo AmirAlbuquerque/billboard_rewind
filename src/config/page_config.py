@@ -1,6 +1,14 @@
 import streamlit as st
 
-def apply_dark_theme():
+def configurar_layout():
+
+    st.set_page_config(
+    page_title="Billboard Rewind",
+    page_icon="🎧",
+    layout="centered",
+    initial_sidebar_state="expanded"
+    )
+
     st.markdown("""
     <style>
     .top3-container {
@@ -19,6 +27,18 @@ def apply_dark_theme():
         width: 240px;
         text-align: center;
         box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    
+    .top-card.right {
+        transform: scale(0.9);
+    }
+                
+    .top-card.left {
+        margin: 10px;
+    }
+
+    .top-card.center {
+        transform: scale(1.1);
     }
                 
     .top-card img {

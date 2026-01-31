@@ -1,14 +1,6 @@
 import streamlit as st
 from datetime import date
 
-def setup_page():
-    st.set_page_config(
-        page_title="🎶 Billboard Hot 100",
-        page_icon="🎧",
-        layout="centered",
-        initial_sidebar_state="expanded"
-    )
-
 def render_sidebar():
     st.sidebar.header("📅 Filtros")
 
@@ -16,14 +8,14 @@ def render_sidebar():
 
     ano = st.sidebar.selectbox(
         "Ano",
-        list(range(1980, hoje.year + 1)),
-        index=(hoje.year - 1980)
+        list(range(1980, hoje.year + 1))[::-1],
+        index=0
     )
 
     mes = st.sidebar.selectbox(
         "Mês",
         list(range(1, 13)),
-        index=(hoje.month - 1)
+        index=0
     )
 
     top_n = st.sidebar.number_input(

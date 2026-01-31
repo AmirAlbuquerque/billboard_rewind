@@ -17,12 +17,13 @@ def carregar_hot100(ano: int, mes: int) -> pd.DataFrame:
         ultimo_dia = date(ano, mes + 1, 1) - timedelta(days=1)
 
     # retrocede até último sábado
-    while ultimo_dia.weekday() != 5:
-        ultimo_dia -= timedelta(days=1)
+    ultimo_sabado = ultimo_dia
+    while ultimo_sabado.weekday() != 5:
+        ultimo_sabado -= timedelta(days=1)
 
     dados=[]
 
-    chart = billboard.ChartData("hot-100", date=ultimo_dia.isoformat())
+    chart = billboard.ChartData("hot-100", date=ultimo_sabado.isoformat())
 
     for m in chart:
         image = m.image
@@ -34,8 +35,6 @@ def carregar_hot100(ano: int, mes: int) -> pd.DataFrame:
                 "artista": m.artist,
                 "image": image
             })
-    
-    print(dados)    
 
     dados_df = pd.DataFrame(dados)
     if dados_df.empty:
@@ -46,6 +45,5 @@ def carregar_hot100(ano: int, mes: int) -> pd.DataFrame:
     dados_df["spotify_url"] = dados_df.apply(
         lambda row: gerar_link_spotify(row['titulo'], row['artista']), axis=1
     )
-    print(dados_df)
 
     return dados_df

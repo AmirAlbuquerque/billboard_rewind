@@ -1,14 +1,13 @@
 import streamlit as st
 from datetime import date
-from service.database import carregar_hot100
+from service.billboard_service import carregar_hot100
 
-from config.page_config import apply_dark_theme
-from ui.layout import setup_page, render_sidebar
-from ui.ranking_view import exibir_lista, exibir_top3, exibir_ranking_completo
+from config.page_config import configurar_layout
+from ui.layout import render_sidebar
+from ui.ranking import exibir_top3, exibir_ranking_completo
 
 # Configuração global
-setup_page()
-apply_dark_theme()
+configurar_layout()
 
 # Conteúdo principal
 st.title("Billboard Rewind")
@@ -34,3 +33,4 @@ if st.session_state.df_atual.empty:
 else:
     exibir_top3(st.session_state.df_atual)
     exibir_ranking_completo(st.session_state.df_atual, top_n)
+st.write("Fonte: [Billboard Hot 100](https://www.billboard.com/charts/hot-100)")
