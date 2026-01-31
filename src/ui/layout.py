@@ -34,6 +34,6 @@ def render_sidebar():
         step=1
     )
 
-    buscar = st.sidebar.button("🎯 Buscar ranking")
+    buscar = st.sidebar.button("Buscar")
 
     return ano, mes, top_n, buscar
