@@ -3,46 +3,93 @@ import streamlit as st
 def apply_dark_theme():
     st.markdown("""
     <style>
-    body {
-        background-color: #0e1117;
-        color: white;
-    }
-    
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-    html, body, [class*="css"]  {
-        font-family: 'Inter', sans-serif;
+    .top3-container {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 24px;
+        padding-bottom: 40px;
     }
 
-    a {
-        text-decoration: none;
-        color: #1DB954; /* Spotify green */
-        font-weight: 600;
+    .top-card {
+        background: white;
+        color: #0f172a;
+        border-radius: 16px;
+        padding: 20px;
+        width: 240px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    .card {
-        background-color: #161b22;
-        padding: 16px 20px;
+                
+    .top-card img {
+        width: 160px;
+        height: 160px;
         border-radius: 12px;
+        object-fit: cover;
         margin-bottom: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-    .rank {
+
+    .rank-badge {
         font-size: 22px;
-        font-weight: 700;
+        margin-bottom: 8px;
     }
+
     .title {
-        font-size: 18px;
-        font-weight: 600;
+        font-weight: 700;
+        font-size: 16px;
+        color: #020617;
     }
+
     .artist {
-        font-size: 15px;
-        color: #b3b3b3;
+        color: #475569;
+        font-size: 14px;
+        margin-bottom: 12px;
     }
-    
+
+    .rank-list {
+        margin-top: 32px;
+    }
+
+    .rank-row {
+        display: flex;
+        align-items: center;
+        background: white;
+        color: #0f172a;
+        padding: 12px 16px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .rank-number {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        margin-right: 12px;
+    }
+
+    .rank-row img {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        margin-right: 12px;
+    }
+
+    .rank-info {
+        flex: 1;
+    }
+
+    .rank-info .title {
+        font-size: 15px;
+    }
+
+    .rank-info .artist {
+        font-size: 13px;
+    }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
