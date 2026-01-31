@@ -15,7 +15,7 @@ Uma aplicação interativa construída com **Python + Streamlit** para explorar 
 
 ---
 
-## 🧱 Estrutura do Projeto
+## 🧱 Estrutura do Repositório
 
 ```text
 billboard_rewind/
@@ -33,7 +33,7 @@ billboard_rewind/
 │   │
 │   ├── ui/
 │   │   ├── layout.py
-│   │   ├── rankin.py
+│   │   ├── ranking.py
 │
 ├── requirements.txt
 ├── README.md
@@ -54,7 +54,7 @@ billboard_rewind/
 
 ```bash
 
-git clone https://github.com/seu-usuario/billboard-rewind.git
+git clone https://github.com/AmirAlbuquerque/billboard_rewind
 cd billboard-rewind
 
 ```
